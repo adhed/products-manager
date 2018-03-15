@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  public title: string = 'app';
+  public isActivated: boolean = false;
+
+  public handleActivate(): void {
+    this.isActivated = true;
+  }
 }
