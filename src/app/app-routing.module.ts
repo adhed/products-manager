@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EmptyContentComponent } from './shared/components';
-
 const routes: Routes = [
+  { path: '', loadChildren: './modules/list/#ListModule' },
+  { path: 'list', loadChildren: './modules/list/#ListModule' },
   { path: 'login', loadChildren: './modules/login/#LoginModule' },
-  { path: '**', component: EmptyContentComponent }
+  { path: '**', redirectTo: 'list' }
 ];
 
 @NgModule({
