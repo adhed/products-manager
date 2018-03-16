@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import * as containers from './containers';
+import * as components from './components';
 import { routes } from './login.routes';
 
 
 @NgModule({
   declarations: [
-    ...containers.entities
+    ...containers.entities,
+    ...components.entities
   ],
   imports: [
     CommonModule,

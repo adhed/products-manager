@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: '', loadChildren: './modules/list/#ListModule' },
   { path: 'list', loadChildren: './modules/list/#ListModule' },
   { path: 'login', loadChildren: './modules/login/#LoginModule' },
-  { path: '**', redirectTo: 'list' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

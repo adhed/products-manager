@@ -1,4 +1,4 @@
-export const apiUrl: string = 'http://recruits.siennsoft.com/api';
+export const API_URL: string = 'http://recruits.siennsoft.com/api';
 
 export enum ApiPath {
   LOGIN = 'Jwt',

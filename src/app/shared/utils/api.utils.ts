@@ -1,13 +1,13 @@
-import { ApiPath, apiUrl } from '@root/app/shared/constants';
+import { ApiPath, API_URL } from '@root/app/shared/constants';
 
 export function getLoginUrl(): string {
-  return `${apiUrl}/${ApiPath.LOGIN}`;
+  return `${API_URL}/${ApiPath.LOGIN}`;
 }
 
 export function getProductsUrl(): string {
-  return `${apiUrl}/${ApiPath.PRODUCTS}`;
+  return `${API_URL}/${ApiPath.PRODUCTS}`;
 }
 
 export function getProductUrl(id: string): string {
-  return `${apiUrl}/${ApiPath.PRODUCTS}/${id}`;
+  return `${API_URL}/${ApiPath.PRODUCTS}/${id}`;
 }
