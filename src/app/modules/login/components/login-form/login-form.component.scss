@@ -1,4 +1,13 @@
-:host {
+.login-form__form {
+  align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.login-form__group {
+  display: flex;
+}
+
+.login-form__password-icon {
+  cursor: pointer;
 }

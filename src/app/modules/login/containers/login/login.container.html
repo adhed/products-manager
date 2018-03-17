@@ -1,2 +1,16 @@
-<h2>Login</h2>
-<app-login-form></app-login-form>
+<h2 class="login__title">Login</h2>
+<p class="login__info">
+  Please sign in to manage list of products.
+</p>
+<my-login-form *ngIf="!requestInProgress; else spinner"
+               (submit)="onFormSubmit($event)">
+</my-login-form>
+<my-error-message *ngIf="error"
+                  [message]="errorMessage"
+                  class="login__error-msg">
+</my-error-message>
+
+<ng-template #spinner>
+  <mat-spinner></mat-spinner>
+</ng-template>
+

@@ -1,5 +1,8 @@
-<router-outlet (activate)="handleActivate()">
-  <ng-container *ngIf="!isActivated">
-    Loading...
-  </ng-container>
-</router-outlet>
+<div class="app__content">
+  <router-outlet (activate)="handleActivate()">
+    <div class="app__loader" *ngIf="!isActivated">
+      Loading...
+    </div>
+  </router-outlet>
+</div>
+

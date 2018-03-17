@@ -1,7 +1,7 @@
-import { EmptyContentComponent } from './empty-content';
+import {ErrorMessageComponent} from './error-message';
 
 export const entities: any[] = [
-  EmptyContentComponent
+  ErrorMessageComponent
 ];
 
-export * from './empty-content';
+export * from './error-message';

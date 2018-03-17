@@ -1,0 +1,29 @@
+@import '../../../../../styles/colors.scss';
+
+:host {
+  align-items: center;
+  background-color: white;
+  border: 2px solid $main-dark;
+  box-shadow: 0 2px 6px rgba($main-dark ,.24), 0 0 2px rgba($main-dark, .12);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 7rem auto;
+  padding: 2rem 2rem 1.75rem;
+  width: 500px;
+}
+
+.login__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.login__info {
+  margin: 0.5rem 0 2.5rem;
+}
+
+.login__error-msg {
+  margin-top: 1.25rem;
+}
+
+
