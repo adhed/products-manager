@@ -45,6 +45,14 @@ export class ListContainerComponent implements OnInit, OnDestroy {
       });
   }
 
+  public onProductEdit(productId: string): void {
+    this.navigationService.redirect(
+      Page.EDIT_PRODUCT,
+      productId
+    );
+  }
+
+
   public refreshProductList(): void {
     this.products$ = this.productService.getAll();
   }

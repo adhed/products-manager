@@ -3,6 +3,7 @@
               [product]="product"
               [isExpanded]="isCardOpened(index)"
               (cardOpened)="onCardOpened(index)"
+              (productEdit)="onProductEdit(product.productID)"
               (productRemove)="onProductRemove(product.productID)"
               class="product-list__item">
   </my-product>

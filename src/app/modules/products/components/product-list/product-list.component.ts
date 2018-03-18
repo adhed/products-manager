@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   @Input() public products: Product[] = [];
   @Output() public productRemove: EventEmitter<string> = new EventEmitter();
+  @Output() public productEdit: EventEmitter<string> = new EventEmitter();
 
   public openedProductId: number = 0;
 
@@ -38,6 +39,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   public onProductRemove(productID: string): void {
     this.productRemove.emit(productID);
+  }
+
+  public onProductEdit(productID: string): void {
+    this.productEdit.emit(productID);
   }
 
   public isCardOpened(index: number): boolean {

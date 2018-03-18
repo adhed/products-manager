@@ -1,10 +1,6 @@
-import {Component, EventEmitter, HostBinding, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 
-import {AuthService} from '@root/app/shared/services';
 import {Product} from '@root/app/shared/models/product.model';
-import {HttpResponse} from '@angular/common/http';
-import {ProductService} from '@root/app/modules/products/services';
 
 @Component({
   selector: 'my-product',
@@ -17,8 +13,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   @Output() public cardOpened: EventEmitter<void> = new EventEmitter();
   @Output() public productRemove: EventEmitter<void> = new EventEmitter();
-
-  constructor(private productService: ProductService) {}
+  @Output() public productEdit: EventEmitter<void> = new EventEmitter();
 
   public ngOnInit(): void {
 
@@ -37,6 +32,6 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   public onEditClick(): void {
-    console.log('edit');
+    this.productEdit.emit();
   }
 }
