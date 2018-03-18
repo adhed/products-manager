@@ -1,4 +1,15 @@
+@import '../../../../../styles/colors';
+
 .product-form__form {
   display: flex;
   flex-direction: column;
+}
+
+.product-form__buttons-group {
+  margin-left: auto;
+}
+
+.product-form__icon {
+  color: $material-gray;
+  margin-left: 0.5rem;
 }

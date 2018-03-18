@@ -1,6 +1,9 @@
 @import '../../../../../styles/colors';
 
-
+:host {
+  display: flex;
+  flex-direction: column;
+}
 
 .list__counter {
   font-size: 1.25rem;

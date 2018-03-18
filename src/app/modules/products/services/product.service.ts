@@ -14,6 +14,10 @@ export class ProductService {
     return this.http.get<Product[]>(getProductsUrl());
   }
 
+  public addProduct(product: Product): Observable<any> {
+    return this.http.post(getProductsUrl(), product);
+  }
+
   public getProduct(id: string): Observable<Product> {
     return this.http.get<Product>(getProductUrl(id));
   }
