@@ -1,0 +1,9 @@
+<mat-accordion class="product-list__accordion">
+  <my-product *ngFor="let product of products; trackBy: trackByProductId; let index = index;"
+              [product]="product"
+              [isExpanded]="isCardOpened(index)"
+              (cardOpened)="onCardOpened(index)"
+              (productRemove)="onProductRemove(product.productID)"
+              class="product-list__item">
+  </my-product>
+</mat-accordion>

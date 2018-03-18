@@ -5,12 +5,17 @@ import * as directives from './directives';
 import * as services from './services';
 import * as guards from './guards';
 import { WindowToken, windowProvider } from './utils';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {MatChipsModule} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
+import {MatChipsModule, MatIconModule, MatToolbarModule, MatTooltipModule} from '@angular/material';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
     MatChipsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    CommonModule,
     HttpClientModule
   ],
   providers: [

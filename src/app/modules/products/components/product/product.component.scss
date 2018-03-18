@@ -1,0 +1,29 @@
+@import '../../../../../styles/colors';
+
+.product__panel .mat-expansion-panel-header-title,
+.product__panel .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.product__panel .mat-expansion-panel-header-description {
+  align-items: center;
+}
+
+.product__panel {
+  &--expanded {
+  }
+}
+
+.product__info {
+  align-items: center;
+  color: $material-gray;
+  display: flex;
+}
+
+.product__info-icon {
+  margin-right: 0.25rem;
+}
+
+.product__button {
+  margin: 0 0.5rem;
+}

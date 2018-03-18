@@ -1,9 +1,9 @@
-import {Component, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostBinding, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 import {AuthService} from '@root/app/shared/services';
 import {Product} from '@root/app/shared/models/product.model';
-import {ProductService} from '@root/app/modules/list/services/product.service';
+import {ProductService} from '@root/app/modules/products/services';
 
 @Component({
   selector: 'my-product-list',
@@ -13,7 +13,10 @@ import {ProductService} from '@root/app/modules/list/services/product.service';
 export class ProductListComponent implements OnInit, OnDestroy {
   @HostBinding('attr.class') public hostClass: string = 'product-list';
 
-  @Input() products: Product[] = [];
+  @Input() public products: Product[] = [];
+  @Output() public productRemove: EventEmitter<string> = new EventEmitter();
+
+  public openedProductId: number = 0;
 
   constructor(private productService: ProductService) {}
 
@@ -27,5 +30,17 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   public trackByProductId(index: number, product: Product): string | number {
     return product.productID || index;
+  }
+
+  public onCardOpened(index: number): void {
+    this.openedProductId = index;
+  }
+
+  public onProductRemove(productID: string): void {
+    this.productRemove.emit(productID);
+  }
+
+  public isCardOpened(index: number): boolean {
+    return index === this.openedProductId;
   }
 }

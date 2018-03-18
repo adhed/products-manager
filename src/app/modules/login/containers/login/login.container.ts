@@ -40,7 +40,7 @@ export class LoginContainerComponent implements OnDestroy {
         (response: LoginResponse) => {
           this.clearForm();
           this.authService.saveToken(response);
-          this.navigationService.redirect(Page.LIST);
+          this.navigationService.redirect(Page.PRODUCTS);
           },
         (error: HttpErrorResponse) => this.handleError(error)
       );

@@ -10,11 +10,15 @@ import { Product } from '@root/app/shared/models/product.model';
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  public getAll$(): Observable<Product[]> {
+  public getAll(): Observable<Product[]> {
     return this.http.get<Product[]>(getProductsUrl());
   }
 
-  public getProduct$(id: string): Observable<Product> {
+  public getProduct(id: string): Observable<Product> {
     return this.http.get<Product>(getProductUrl(id));
+  }
+
+  public removeProduct(id: string): Observable<any> {
+    return this.http.delete(getProductUrl(id));
   }
 }

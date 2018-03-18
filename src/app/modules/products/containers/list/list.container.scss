@@ -1,0 +1,27 @@
+@import '../../../../../styles/colors';
+
+
+
+.list__counter {
+  font-size: 1.25rem;
+}
+
+.list__spinner {
+  align-self: center;
+}
+
+.list__add-product-wrapper {
+  align-items: center;
+  display: flex;
+  margin-bottom: 1.5rem;
+  vertical-align: middle;
+}
+
+.list__add-button {
+  margin-left: auto;
+}
+
+.list__products-number {
+  color: $material-primary;
+  font-weight: bold;
+}

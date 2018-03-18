@@ -1,4 +1,6 @@
 export enum Page {
-  LIST = 'list',
+  ADD_PRODUCT = 'products/add',
+  EDIT_PRODUCT = 'products/edit',
+  PRODUCTS = 'products',
   LOGIN = 'login'
 }

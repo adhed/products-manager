@@ -1,0 +1,42 @@
+<mat-expansion-panel class="product__panel"
+                     [ngClass]="{'product__panel--expanded': isExpanded}"
+                     [expanded]="isExpanded"
+                     (opened)="onOpened()"
+                     [hideToggle]="false">
+
+  <mat-expansion-panel-header class="product__header">
+    <mat-panel-title>
+      <h3>{{ product.name }}</h3>
+    </mat-panel-title>
+
+    <mat-panel-description>
+      <mat-chip-list title="Product's price">
+        <mat-chip>
+          <mat-icon>attach_money</mat-icon>
+          {{ product.price }}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <span class="product_id product__info" title="Product id">
+    <mat-icon class="product__info-icon">label</mat-icon>
+    #{{ product.productID }}
+  </span>
+
+  <span class="product__description product__info">
+    <mat-icon class="product__info-icon">description</mat-icon>
+    {{ product.description }}
+  </span>
+
+  <mat-action-row>
+    <button mat-raised-button class="product__button" (click)="onEditClick()">
+      <mat-icon aria-label="Example icon-button with a heart icon">mode_edit</mat-icon>
+      Edit
+    </button>
+    <button mat-raised-button class="product__button" (click)="onRemoveClick()" >
+      <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+      Remove
+    </button>
+  </mat-action-row>
+</mat-expansion-panel>

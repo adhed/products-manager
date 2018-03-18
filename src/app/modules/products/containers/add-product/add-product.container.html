@@ -1,0 +1,30 @@
+<h2 class="add-product__header">
+  Add a new product
+</h2>
+
+<form class="product-form__form" [formGroup]="productForm" novalidate>
+  <mat-form-field>
+    <input matInput placeholder="Name" formControlName="name" required>
+    <!--<mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>-->
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Price" type="number" formControlName="price" required>
+    <span matPrefix>$&nbsp;</span>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description" formControlName="description"></textarea>
+  </mat-form-field>
+
+  <div>
+    <button mat-raised-button color="primary" (click)="onAddClick()" class="list__add-button">
+      <mat-icon>add_circle</mat-icon>
+      Add
+    </button>
+    <button mat-raised-button (click)="onResetClick()" class="list__add-button">
+      <mat-icon>clear</mat-icon>
+      Reset
+    </button>
+  </div>
+</form>

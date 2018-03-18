@@ -9,7 +9,7 @@ import {LoginData} from '@root/app/shared/models';
 })
 export class LoginFormComponent {
   @HostBinding('attr.class') public hostClass: string = 'login-form';
-  @Output() public formSubmit: EventEmitter<LoginData> = new EventEmitter<LoginData>();
+  @Output() public formSubmit: EventEmitter<LoginData> = new EventEmitter();
 
   public hidePassword: boolean = true;
   public model: LoginData = {

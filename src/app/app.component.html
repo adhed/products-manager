@@ -1,7 +1,7 @@
 <div class="app__content">
   <router-outlet (activate)="handleActivate()">
     <div class="app__loader" *ngIf="!isActivated">
-      Loading...
+      <h2>Loading...</h2>
     </div>
   </router-outlet>
 </div>
