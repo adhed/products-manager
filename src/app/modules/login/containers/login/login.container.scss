@@ -1,10 +1,11 @@
 @import '../../../../../styles/colors.scss';
+@import '../../../../../styles/shared.scss';
 
 .login__container {
   align-items: center;
-  background-color: $material-white;
-  border: 1px solid $material-primary;
-  box-shadow: 0 2px 6px rgba($main-dark ,.24), 0 0 2px rgba($main-dark, .12);
+  background-color: $gray;;
+  border: 1px solid $main-dark;
+  box-shadow: $form-box-shadow;
   border-radius: 2px;
   display: flex;
   flex-direction: column;

@@ -1,4 +1,13 @@
 @import '../../../../../styles/colors';
+@import '../../../../../styles/shared';
+
+:host {
+  background: $gray;
+  border: 1px solid $main-dark;
+  box-shadow: $form-box-shadow;
+  display: block;
+  padding: 2rem;
+}
 
 .product-form__form {
   display: flex;
