@@ -1,10 +1,13 @@
-<form class="product-form__form" [formGroup]="productForm" novalidate>
+<form class="product-form__form"
+      (keydown.enter)="onEnterClick($event)"
+      [formGroup]="productForm"
+      novalidate>
   <mat-form-field class="product-form__field">
     <input matInput
            #nameInput
            placeholder="Product name"
            formControlName="name"
-           myAutoFocus
+           myAutoFocus="200"
            required>
     <mat-icon matSuffix class="product-form__icon">shopping_basket</mat-icon>
     <mat-error *ngIf="productForm.controls['name'].touched && productForm.controls['name'].invalid">

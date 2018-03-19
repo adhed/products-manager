@@ -1,6 +1,6 @@
-import {HttpResponse} from '@angular/common/http';
-import {RequestResult, RequestResultType} from '@root/app/shared/models/request-result.model';
-import {NO_CONTENT_CODE, OK_CODE} from '@root/app/shared/constants';
+import { HttpResponse } from '@angular/common/http';
+import { RequestResult, RequestResultType } from '@root/app/shared/models/request-result.model';
+import { NO_CONTENT_CODE, OK_CODE } from '@root/app/shared/constants';
 
 
 export function getRequestResult(

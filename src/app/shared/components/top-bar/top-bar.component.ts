@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 import { AuthService, NavigationService } from '@root/app/shared/services';
 import { Page } from '@root/app/shared/constants/pages.constant';
@@ -9,15 +10,16 @@ import { Page } from '@root/app/shared/constants/pages.constant';
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss']
 })
-export class TopBarComponent {
+export class TopBarComponent implements OnInit {
+  public isAuthenticated$: Subject<boolean>;
 
   constructor(
     private authService: AuthService,
     private navigationService: NavigationService
   ) {}
 
-  public get isLoggedIn(): boolean {
-    return this.authService.isUserAuthenticated();
+  public ngOnInit(): void {
+    this.isAuthenticated$ = this.authService.isAuthenticated$;
   }
 
   public onLogoutClick(): void {

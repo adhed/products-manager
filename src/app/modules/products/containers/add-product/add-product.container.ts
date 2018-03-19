@@ -1,15 +1,17 @@
-import {Component, OnDestroy} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy} from '@angular/core';
+import {HttpErrorResponse, HttpHeaderResponse} from '@angular/common/http';
+import {Subject} from 'rxjs/Subject';
+import {takeUntil} from 'rxjs/operators';
+
 import {ProductFormType} from '@root/app/shared/constants';
 import {Product} from '@root/app/shared/models/product.model';
-import {HttpErrorResponse, HttpHeaderResponse} from '@angular/common/http';
 import {Page} from '@root/app/shared/constants/pages.constant';
 import {ProductService} from '@root/app/modules/products/services';
 import {NavigationService} from '@root/app/shared/services';
-import {takeUntil} from 'rxjs/operators';
-import {Subject} from 'rxjs/Subject';
 
 @Component({
   selector: 'my-add-product-component',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './add-product.container.html',
   styleUrls: ['./add-product.container.scss']
 })

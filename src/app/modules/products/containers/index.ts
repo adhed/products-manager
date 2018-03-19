@@ -1,7 +1,7 @@
-import {ListContainerComponent} from './list';
-import {EditProductContainerComponent} from './edit-product';
-import {ProductsContainerComponent} from './products';
-import {AddProductContainerComponent} from './add-product';
+import { ListContainerComponent } from './list';
+import { EditProductContainerComponent } from './edit-product';
+import { ProductsContainerComponent } from './products';
+import { AddProductContainerComponent } from './add-product';
 
 export const entities: any[] = [
   AddProductContainerComponent,

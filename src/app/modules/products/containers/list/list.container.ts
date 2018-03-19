@@ -34,7 +34,10 @@ export class ListContainerComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.isLoading = true;
     this.products$ = this.productService.getAll()
-      .pipe(tap(() => this.isLoading = false));
+      .pipe(
+        takeUntil(this.destroy$),
+        tap(() => this.isLoading = false)
+      );
   }
 
   public ngOnDestroy(): void {
@@ -53,7 +56,11 @@ export class ListContainerComponent implements OnInit, OnDestroy {
   }
 
   public refreshProductList(): void {
-    this.products$ = this.productService.getAll();
+    this.products$ = this.productService.getAll()
+      .pipe(
+        takeUntil(this.destroy$),
+        tap(() => this.isLoading = false)
+      );
   }
 
   public onAddButtonClick(): void {

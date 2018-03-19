@@ -1,10 +1,11 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ProductService} from '@root/app/modules/products/services';
-import {Subject} from 'rxjs/Subject';
-import {RequestResult} from '@root/app/shared/models/request-result.model';
-import {Router} from '@angular/router';
-import {takeUntil} from 'rxjs/operators';
-import {RequestResultComponent} from '@root/app/modules/products/components';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs/Subject';
+import { takeUntil } from 'rxjs/operators';
+
+import { ProductService } from '@root/app/modules/products/services';
+import { RequestResult } from '@root/app/shared/models/request-result.model';
+import { RequestResultComponent } from '@root/app/modules/products/components';
 
 @Component({
   selector: 'my-products-container',

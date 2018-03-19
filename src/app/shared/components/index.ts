@@ -1,4 +1,4 @@
-import {ErrorMessageComponent} from './error-message';
+import { ErrorMessageComponent } from './error-message';
 import { TopBarComponent } from './top-bar';
 
 export const entities: any[] = [

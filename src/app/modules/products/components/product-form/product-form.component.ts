@@ -91,6 +91,11 @@ export class ProductFormComponent implements OnInit {
     this.navigationService.redirect(Page.PRODUCTS);
   }
 
+  public onEnterClick(event: KeyboardEvent) {
+    event.preventDefault();
+    // TODO: handle focusing on the next input
+  }
+
   private rebuildForm(): void {
     this.productForm.reset({
       name: this._product.name,

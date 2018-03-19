@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpErrorResponse, HttpHeaderResponse} from '@angular/common/http';
 import {takeUntil} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
@@ -13,6 +13,7 @@ import {NavigationService} from '@root/app/shared/services';
 
 @Component({
   selector: 'my-edit-product-component',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './edit-product.container.html',
   styleUrls: ['./edit-product.container.scss']
 })
