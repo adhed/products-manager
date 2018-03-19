@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Params, Router} from '@angular/router';
-import {Page} from '@root/app/shared/constants/pages.constant';
+import { Router } from '@angular/router';
+
+import { Page } from '@root/app/shared/constants/pages.constant';
 
 @Injectable()
 export class NavigationService {

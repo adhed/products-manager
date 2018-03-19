@@ -1,13 +1,13 @@
 import { Inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 import { getLoginParams, getLoginUrl, WindowToken } from '@root/app/shared/utils';
 import { getAuthTokenKey } from '@root/app/shared/utils/auth.utils';
-import { HttpClient } from '@angular/common/http';
 import { LoginData } from '@root/app/shared/models';
-import { Observable } from 'rxjs/Observable';
 import { NavigationService } from '@root/app/shared/services/navigation.service';
 import { LoginResponse } from '@root/app/shared/models/login.model';
-import {Page} from '@root/app/shared/constants/pages.constant';
+import { Page } from '@root/app/shared/constants/pages.constant';
 
 
 @Injectable()

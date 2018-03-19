@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {AuthService, NavigationService} from '@root/app/shared/services';
-import {Page} from '@root/app/shared/constants/pages.constant';
+
+import { AuthService, NavigationService } from '@root/app/shared/services';
+import { Page } from '@root/app/shared/constants/pages.constant';
 
 @Component({
   selector: 'my-top-bar',
