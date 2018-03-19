@@ -1,0 +1,10 @@
+<mat-chip-list *ngIf="result && isChipVisible">
+  <mat-chip class="request-result__chip"
+            [color]="chipColor"
+            [selected]="true"
+            (remove)="onChipRemove()">
+    <mat-icon class="request-result__icon">{{ isSuccess ? 'done' : 'error' }}</mat-icon>
+    <span class="request-result__message">{{ result.message }}!</span>
+    <mat-icon class="request-result__icon--remove" matChipRemove title="hide">cancel</mat-icon>
+  </mat-chip>
+</mat-chip-list>

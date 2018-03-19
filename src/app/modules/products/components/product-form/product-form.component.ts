@@ -98,7 +98,6 @@ export class ProductFormComponent implements OnInit {
     this.productService.addProduct(this.preparedProduct)
       .subscribe(
         (response: HttpHeaderResponse) => {
-          console.log('res', response);
           this.navigationService.redirect(Page.PRODUCTS);
         },
         (error: HttpErrorResponse) => this.handleError(error)
@@ -116,6 +115,6 @@ export class ProductFormComponent implements OnInit {
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.error('There have been a problem:', error);
+    console.error('There was a problem:', error);
   }
 }
