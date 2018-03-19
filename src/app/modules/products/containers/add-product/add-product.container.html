@@ -2,4 +2,6 @@
   Add a new product
 </h2>
 
-<my-product-form [type]="productFormType"></my-product-form>
+<my-product-form [type]="productFormType"
+                 (formSubmit)="onFormSubmit($event)">
+</my-product-form>

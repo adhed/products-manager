@@ -2,4 +2,7 @@
   You're editing a product with id {{ (product$ | async)?.productID }}.
 </h2>
 
-<my-product-form [type]="productFormType" [product]="product$ | async"></my-product-form>
+<my-product-form [type]="productFormType"
+                 (formSubmit)="onFormSubmit($event)"
+                 [product]="product$ | async">
+</my-product-form>

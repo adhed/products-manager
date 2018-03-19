@@ -1,5 +1,7 @@
 import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {HttpResponse} from '@angular/common/http';
+import {MatDialog} from '@angular/material';
+import {Subject} from 'rxjs/Subject';
 import {filter, take, takeUntil, tap} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
 
@@ -7,8 +9,6 @@ import {AuthService, NavigationService} from '@root/app/shared/services';
 import {Product} from '@root/app/shared/models/product.model';
 import {ProductService} from '@root/app/modules/products/services';
 import {Page} from '@root/app/shared/constants/pages.constant';
-import {Subject} from 'rxjs/Subject';
-import {MatDialog} from '@angular/material';
 import {ConfirmRemoveDialogComponent} from '@root/app/modules/products/components';
 
 @Component({

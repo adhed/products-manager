@@ -1,9 +1,8 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import {Product} from '@root/app/shared/models/product.model';
-import {HttpErrorResponse, HttpHeaderResponse} from '@angular/common/http';
 import {Page} from '@root/app/shared/constants/pages.constant';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {NavigationService} from '@root/app/shared/services';
 import {ProductService} from '@root/app/modules/products/services';
 import {ProductFormType} from '@root/app/shared/constants/product-form.constant';
@@ -15,6 +14,7 @@ import {ProductFormType} from '@root/app/shared/constants/product-form.constant'
   styleUrls: ['./product-form.component.scss']
 })
 export class ProductFormComponent implements OnInit {
+  @ViewChild('nameInput') public nameInput: ElementRef;
   @Input() public type: ProductFormType;
   @Input() public set product(product: Product) {
     this._product = product;
@@ -23,6 +23,8 @@ export class ProductFormComponent implements OnInit {
       this.rebuildForm();
     }
   }
+
+  @Output() public formSubmit: EventEmitter<Product> = new EventEmitter<Product>();
 
   public _product: Product;
   public productForm: FormGroup;
@@ -75,11 +77,14 @@ export class ProductFormComponent implements OnInit {
   }
 
   public onSubmitClick(): void {
-    this.isEditForm ? this.editProduct() : this.addProduct();
+    this.formSubmit.emit(
+      this.isEditForm ? this.preparedModifiedProduct : this.preparedProduct
+    );
   }
 
   public onResetClick(): void {
     this.rebuildForm();
+    this.nameInput.nativeElement.focus();
   }
 
   public onBackClick(): void {
@@ -92,29 +97,5 @@ export class ProductFormComponent implements OnInit {
       description: this._product.description,
       price: this._product.price
     });
-  }
-
-  private addProduct(): void {
-    this.productService.addProduct(this.preparedProduct)
-      .subscribe(
-        (response: HttpHeaderResponse) => {
-          this.navigationService.redirect(Page.PRODUCTS);
-        },
-        (error: HttpErrorResponse) => this.handleError(error)
-      );
-  }
-
-  private editProduct(): void {
-    this.productService.updateProduct(this._product.productID, this.preparedModifiedProduct)
-      .subscribe(
-        (response: HttpHeaderResponse) => {
-          this.navigationService.redirect(Page.PRODUCTS);
-        },
-        (error: HttpErrorResponse) => this.handleError(error)
-      );
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    console.error('There was a problem:', error);
   }
 }
