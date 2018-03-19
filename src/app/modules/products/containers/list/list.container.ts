@@ -57,7 +57,7 @@ export class ListContainerComponent implements OnInit, OnDestroy {
     this.products$ = this.productService.getAll();
   }
 
-  public onProductAddClick(): void {
+  public onAddButtonClick(): void {
     this.navigationService.redirect(Page.ADD_PRODUCT);
   }
 }

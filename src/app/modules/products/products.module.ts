@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {
-  MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDividerModule, MatExpansionModule, MatFormFieldModule,
+  MatIconModule, MatInputModule,
   MatListModule,
   MatProgressSpinnerModule,
   MatToolbarModule, MatTooltipModule
@@ -31,6 +32,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatButtonModule,
     MatToolbarModule,
     MatChipsModule,
+    MatCheckboxModule,
     MatDividerModule,
     MatListModule,
     MatInputModule,

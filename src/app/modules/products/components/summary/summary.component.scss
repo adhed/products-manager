@@ -1,0 +1,20 @@
+@import '../../../../../styles/colors';
+
+:host {
+  align-items: center;
+  display: flex;
+  vertical-align: middle;
+}
+
+.summary__add-button {
+  margin-left: auto;
+}
+
+.summary__counter {
+  font-size: 1.25rem;
+}
+
+.summary__counter-number {
+  color: $material-primary;
+  font-weight: bold;
+}

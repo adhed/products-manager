@@ -1,5 +1,5 @@
 <h2 class="add-product__header">
-  Edit product
+  You're editing a product with id {{ (product$ | async).productID }}.
 </h2>
 
 <my-product-form [type]="productFormType" [product]="product$ | async"></my-product-form>
