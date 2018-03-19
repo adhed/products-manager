@@ -6,7 +6,9 @@
     <span class="top-bar__app-name">Products Manager</span>
   </div>
 
-  <div class="top-bar__logout-wrapper" *ngIf="isLoggedIn" (click)="onLogoutClick()">
+  <div class="top-bar__logout-wrapper"
+       *ngIf="(isAuthenticated$ | async)"
+       (click)="onLogoutClick()">
     <mat-icon class="top-bar__icon">power_settings_new</mat-icon>
     <span class="top-bar__logout-link" matTooltip="See you!">Logout</span>
   </div>

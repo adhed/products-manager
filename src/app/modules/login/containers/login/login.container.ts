@@ -32,7 +32,7 @@ export class LoginContainerComponent implements OnDestroy {
     this.requestInProgress = true;
     this.clearErrorMessage();
 
-    this.authService.login$(data)
+    this.authService.login(data)
       .pipe(takeUntil(this.destroy$))
       .subscribe(
         (response: LoginResponse) => {
