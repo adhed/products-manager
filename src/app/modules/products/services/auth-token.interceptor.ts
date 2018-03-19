@@ -3,14 +3,16 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpHeaders, HttpErrorResponse
+  HttpInterceptor,
+  HttpHeaders,
+  HttpErrorResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import {tap} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
-import {AuthService, NavigationService} from '@root/app/shared/services';
-import {Page} from '@root/app/shared/constants/pages.constant';
-import {UNAUTHORIZED_CODE} from '@root/app/shared/constants';
+import { AuthService, NavigationService } from '@root/app/shared/services';
+import { Page } from '@root/app/shared/constants/pages.constant';
+import { UNAUTHORIZED_CODE } from '@root/app/shared/constants';
 
 @Injectable()
 export class AuthTokenInterceptor implements HttpInterceptor {

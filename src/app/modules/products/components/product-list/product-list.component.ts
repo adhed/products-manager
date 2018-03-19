@@ -1,16 +1,19 @@
-import {Component, EventEmitter, HostBinding, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {
+  ChangeDetectionStrategy,
+  Component, EventEmitter,
+  HostBinding,
+  Input,
+  Output} from '@angular/core';
 
-import {AuthService} from '@root/app/shared/services';
 import {Product} from '@root/app/shared/models/product.model';
-import {ProductService} from '@root/app/modules/products/services';
 
 @Component({
   selector: 'my-product-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent {
   @HostBinding('attr.class') public hostClass: string = 'product-list';
 
   @Input() public products: Product[] = [];
@@ -18,16 +21,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
   @Output() public productEdit: EventEmitter<string> = new EventEmitter();
 
   public openedProductId: number = 0;
-
-  constructor(private productService: ProductService) {}
-
-  public ngOnInit(): void {
-
-  }
-
-  public ngOnDestroy(): void {
-
-  }
 
   public trackByProductId(index: number, product: Product): string | number {
     return product.productID || index;

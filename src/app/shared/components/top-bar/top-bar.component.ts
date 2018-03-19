@@ -10,7 +10,6 @@ import { Page } from '@root/app/shared/constants/pages.constant';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent {
-
   constructor(
     private authService: AuthService,
     private navigationService: NavigationService

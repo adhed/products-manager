@@ -1,25 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
-  MatButtonModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDialogModule, MatDividerModule, MatExpansionModule,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
   MatFormFieldModule,
   MatIconModule, MatInputModule,
   MatListModule,
   MatProgressSpinnerModule,
-  MatToolbarModule, MatTooltipModule
+  MatToolbarModule
 } from '@angular/material';
 
 import * as containers from './containers';
 import * as components from './components';
 import * as services from './services';
 import { routes } from './products.routes';
-import {SharedModule} from '@root/app/shared/shared.module';
-
-import {AuthTokenInterceptor} from '@root/app/modules/products/services';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ConfirmRemoveDialogComponent} from '@root/app/modules/products/components';
+import { SharedModule}  from '@root/app/shared/shared.module';
+import { AuthTokenInterceptor } from '@root/app/modules/products/services';
+import { ConfirmRemoveDialogComponent } from '@root/app/modules/products/components';
 
 
 @NgModule({

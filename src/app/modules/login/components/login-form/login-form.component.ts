@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Output} from '@angular/core';
-import {LoginData} from '@root/app/shared/models';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Output } from '@angular/core';
+import { LoginData } from '@root/app/shared/models';
 
 @Component({
   selector: 'my-login-form',

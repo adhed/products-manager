@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import {Product} from '@root/app/shared/models/product.model';
 
@@ -7,21 +7,13 @@ import {Product} from '@root/app/shared/models/product.model';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit, OnDestroy {
+export class ProductComponent {
   @Input() product: Product;
   @Input() isExpanded: boolean;
 
   @Output() public cardOpened: EventEmitter<void> = new EventEmitter();
   @Output() public productRemove: EventEmitter<void> = new EventEmitter();
   @Output() public productEdit: EventEmitter<void> = new EventEmitter();
-
-  public ngOnInit(): void {
-
-  }
-
-  public ngOnDestroy(): void {
-
-  }
 
   public onOpened(): void {
     this.cardOpened.emit();

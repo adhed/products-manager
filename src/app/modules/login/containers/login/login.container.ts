@@ -1,10 +1,11 @@
 import {Component, HostBinding, OnDestroy} from '@angular/core';
+import {HttpErrorResponse} from '@angular/common/http';
 import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs/Subject';
+
 import {LoginData, LoginResponse} from '@root/app/shared/models';
 import {Page} from '@root/app/shared/constants/pages.constant';
 import {AuthService, NavigationService} from '@root/app/shared/services';
-import {Subject} from 'rxjs/Subject';
-import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'my-login-container',
@@ -16,7 +17,6 @@ export class LoginContainerComponent implements OnDestroy {
 
   public error: string = '';
   public requestInProgress: boolean = false;
-  public returnUrl: string = '';
   private destroy$: Subject<void> = new Subject();
 
   constructor(
@@ -33,9 +33,7 @@ export class LoginContainerComponent implements OnDestroy {
     this.clearErrorMessage();
 
     this.authService.login$(data)
-      .pipe(
-        takeUntil(this.destroy$)
-      )
+      .pipe(takeUntil(this.destroy$))
       .subscribe(
         (response: LoginResponse) => {
           this.clearForm();
