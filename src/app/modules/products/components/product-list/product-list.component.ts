@@ -1,9 +1,11 @@
 import {
   ChangeDetectionStrategy,
-  Component, EventEmitter,
+  Component,
+  EventEmitter,
   HostBinding,
   Input,
-  Output} from '@angular/core';
+  Output
+} from '@angular/core';
 
 import {Product} from '@root/app/shared/models/product.model';
 
