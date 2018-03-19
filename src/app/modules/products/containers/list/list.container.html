@@ -5,8 +5,8 @@
 
   <ng-container *ngIf="products?.length; else noProducts">
     <my-product-list [products]="products"
-                     (productEdit)="onProductEdit($event)"
-                     (productRemove)="onProductRemove($event)">
+                     (productEdit)="onProductEditClick($event)"
+                     (productRemove)="onProductRemoveClick($event)">
     </my-product-list>
   </ng-container>
 </ng-container>

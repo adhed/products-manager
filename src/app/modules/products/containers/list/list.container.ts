@@ -1,6 +1,6 @@
 import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {HttpResponse} from '@angular/common/http';
-import {takeUntil, tap} from 'rxjs/operators';
+import {filter, take, takeUntil, tap} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
 
 import {AuthService, NavigationService} from '@root/app/shared/services';
@@ -8,6 +8,8 @@ import {Product} from '@root/app/shared/models/product.model';
 import {ProductService} from '@root/app/modules/products/services';
 import {Page} from '@root/app/shared/constants/pages.constant';
 import {Subject} from 'rxjs/Subject';
+import {MatDialog} from '@angular/material';
+import {ConfirmRemoveDialogComponent} from '@root/app/modules/products/components';
 
 @Component({
   selector: 'my-list-container',
@@ -25,32 +27,25 @@ export class ListContainerComponent implements OnInit, OnDestroy {
   constructor(
     private navigationService: NavigationService,
     private authService: AuthService,
-    private productService: ProductService
+    private productService: ProductService,
+    private dialog: MatDialog
   ) {}
 
   public ngOnInit(): void {
     this.isLoading = true;
     this.products$ = this.productService.getAll()
-      .pipe(
-        tap(() => this.isLoading = false)
-      );
+      .pipe(tap(() => this.isLoading = false));
   }
 
   public ngOnDestroy(): void {
     this.destroy$.complete();
   }
 
-  public onProductRemove(productID: string): void {
-    this.productService.removeProduct(productID)
-      .pipe(
-        takeUntil(this.destroy$)
-      )
-      .subscribe((response: HttpResponse<void>) => {
-        this.refreshProductList();
-      });
+  public onProductRemoveClick(productId: string): void {
+    this.openDialog(productId);
   }
 
-  public onProductEdit(productId: string): void {
+  public onProductEditClick(productId: string): void {
     this.navigationService.redirect(
       Page.EDIT_PRODUCT,
       productId
@@ -63,5 +58,24 @@ export class ListContainerComponent implements OnInit, OnDestroy {
 
   public onAddButtonClick(): void {
     this.navigationService.redirect(Page.ADD_PRODUCT);
+  }
+
+  private openDialog(productId: string): void {
+    const dialogRef = this.dialog.open(ConfirmRemoveDialogComponent);
+
+    dialogRef.afterClosed()
+      .pipe(
+        filter((confirmed: boolean) => confirmed),
+        take(1)
+      )
+      .subscribe(() => this.removeProduct(productId));
+  }
+
+  private removeProduct(productId: string): void {
+    this.productService.removeProduct(productId)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((response: HttpResponse<void>) => {
+        this.refreshProductList();
+      });
   }
 }

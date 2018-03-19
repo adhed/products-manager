@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {
-  MatButtonModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDividerModule, MatExpansionModule, MatFormFieldModule,
+  MatButtonModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDialogModule, MatDividerModule, MatExpansionModule,
+  MatFormFieldModule,
   MatIconModule, MatInputModule,
   MatListModule,
   MatProgressSpinnerModule,
@@ -18,6 +19,7 @@ import {SharedModule} from '@root/app/shared/shared.module';
 
 import {AuthTokenInterceptor} from '@root/app/modules/products/services';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ConfirmRemoveDialogComponent} from '@root/app/modules/products/components';
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatChipsModule,
     MatCheckboxModule,
     MatDividerModule,
+    MatDialogModule,
     MatListModule,
     MatInputModule,
     MatFormFieldModule,
@@ -44,6 +47,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
+  ],
+  entryComponents: [
+    ConfirmRemoveDialogComponent
   ],
   providers: [
     ...services.entities,
