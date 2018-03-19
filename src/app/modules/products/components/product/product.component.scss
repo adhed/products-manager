@@ -2,7 +2,8 @@
 
 .product__panel .mat-expansion-panel-header-title,
 .product__panel .mat-expansion-panel-header-description {
-  flex-basis: 0;
+  flex: 1 1 0;
+  max-width: 60%;
 }
 
 .product__panel .mat-expansion-panel-header-description {
@@ -11,6 +12,7 @@
 
 .product__panel {
   &--expanded {
+    background-color: $gray;
   }
 }
 
@@ -18,10 +20,14 @@
   align-items: center;
   color: $material-gray;
   display: flex;
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  vertical-align: middle;
 }
 
 .product__info-icon {
   margin-right: 0.25rem;
+  vertical-align: middle;
 }
 
 .product__button {

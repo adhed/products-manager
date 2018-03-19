@@ -19,15 +19,16 @@
     </mat-panel-description>
   </mat-expansion-panel-header>
 
-  <span class="product__info" title="Product id">
+  <mat-list-item class="product__info" title="Product id">
     <mat-icon class="product__info-icon">label</mat-icon>
     #{{ product.productID }}
-  </span>
+  </mat-list-item>
 
-  <span class="product__info">
+  <mat-divider *ngIf="product.description"></mat-divider>
+  <mat-list-item class="product__info" *ngIf="product.description">
     <mat-icon class="product__info-icon">description</mat-icon>
     {{ product.description }}
-  </span>
+  </mat-list-item>
 
   <mat-action-row>
     <button mat-raised-button class="product__button" (click)="onEditClick()">

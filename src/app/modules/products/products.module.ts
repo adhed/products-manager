@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {
   MatButtonModule, MatCardModule, MatChipsModule, MatDividerModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule,
+  MatListModule,
   MatProgressSpinnerModule,
   MatToolbarModule, MatTooltipModule
 } from '@angular/material';
@@ -31,6 +32,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatToolbarModule,
     MatChipsModule,
     MatDividerModule,
+    MatListModule,
     MatInputModule,
     MatFormFieldModule,
     MatExpansionModule,
