@@ -40,16 +40,8 @@ describe('LoginContainerComponent', () => {
     expect(fixture.nativeElement).toBeDefined();
   });
 
-  it('should clear form after login', () => {
-    const spy = spyOn(component, 'clearForm');
-
-    component.onFormSubmit({...mockedLoginData});
-
-    expect(spy).toHaveBeenCalled();
-  });
-
   it('should redirect to products list after login', () => {
-    const spy = spyOn(component.navigationService, 'redirect');
+    const spy = spyOn(component['navigationService'], 'redirect');
 
     component.onFormSubmit({...mockedLoginData});
 
